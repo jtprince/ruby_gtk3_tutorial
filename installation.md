@@ -12,4 +12,5 @@ download page](http://www.ruby-lang.org/en/downloads/).
 
     gem install gtk3
 
-If you have a recent The installation script may prompt you for your password to install necessary dev packages.
+If you have a recent ruby install then the installation script should prompt
+you for your password to install necessary dev packages to your system.
