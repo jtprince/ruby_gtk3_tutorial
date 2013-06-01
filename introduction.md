@@ -4,4 +4,11 @@ To start with our tutorial we create the simplest program possible. This program
 
 [[images/simple_example_output.png|alt=simple_example_output]]
 
-```ruby:simple_example.rb ```
+```ruby:simple_example.rb```
+```ruby:/simple_example.rb```
+```ruby:apps/simple_example.rb```
+```ruby:/apps/simple_example.rb```
+```ruby:simple_example.rb````
+```ruby:/simple_example.rb````
+```ruby:apps/simple_example.rb````
+```ruby:/apps/simple_example.rb````
