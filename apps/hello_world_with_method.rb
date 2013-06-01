@@ -8,14 +8,14 @@ class MyWindow < Gtk::Window
     # or super("Hello World")
     
     button = Gtk::Button.new(label: "Click Here")
-    button.signal_connect('clicked') { on_button_click(button) }
+    button.signal_connect('clicked') {|widget| on_button_click(widget) }
     # or
     #button.signal_connect('clicked', &method(:on_button_click))
     
     add button
   end
 
-  def on_button_click(button)
+  def on_button_click(widget)
     puts "Hello World"
   end
 end
