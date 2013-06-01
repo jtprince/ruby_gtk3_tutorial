@@ -70,7 +70,7 @@ title to Hello World.
 
 ```ruby
 super  
-set_title "Hello World"
+title = "Hello World"
 # or super("Hello World")
 ```
 

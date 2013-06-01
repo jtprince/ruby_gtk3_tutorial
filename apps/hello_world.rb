@@ -4,7 +4,7 @@ require 'gtk3'
 class MyWindow < Gtk::Window
   def initialize
     super  
-    set_title "Hello World"
+    title = "Hello World"
     # or super("Hello World")
     
     button = Gtk::Button.new(label: "Click Here")
