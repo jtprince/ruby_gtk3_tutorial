@@ -48,3 +48,11 @@ To run the program, open a terminal, change to the directory of the file, and en
 ruby simple_example.rb
 ```
 
+## 2.2 Extended Example
+
+For something a little more useful, here’s the PyGObject(??) version of the classic “Hello World” program.
+
+[[images/hello_world_output.png|alt=hello_world_output]]
+
+```ruby:apps/hello_world.rb```
+
