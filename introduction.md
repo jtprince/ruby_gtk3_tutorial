@@ -3,3 +3,4 @@ To start with our tutorial we create the simplest program possible. This program
 
 
 ![simple_example_output](wiki/images/simple_example_output.png)
+[[images/simple_example_output.png]]
