@@ -13,4 +13,4 @@ Although this tutorial describes the most important classes and methods within G
 Contents:
 
 * [[Installation]]
-* [[Introduction|Getting Started]]
+* [[Getting Started|Introduction]]
