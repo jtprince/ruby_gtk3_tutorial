@@ -85,12 +85,13 @@ easily have bound it to a method in our window class.  What would that have
 looked like?
 
 ```ruby
-button.signal_connect('clicked') &on_button_click
-
+button.signal_connect('clicked') { on_button_click(button) }
+# alternatively, if you prefer
+button.signal_connect('clicked', &method(:on_button_click))
 ...
 
 # within the MyWindow class
-def on_button_click(widget)
+def on_button_click(button)
   puts "Hello World"
 end
 ```
