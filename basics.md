@@ -34,19 +34,33 @@ Calling Gtk.main_quit makes the main loop inside of Gtk.main return.
 Properties describe the configuration and state of widgets. As for signals, each widget has its own particular set of properties. For example, a button has the property “label” which contains the text of the label widget inside the button. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget. To create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, use:
 
 ```ruby
-#label = Gtk.Label(label: "Hello World", angle: 25, halign: Gtk.Align.END)
-# need to find equivalent of Gtk.Align.END for ruby bindings
-label = Gtk::Label.new(label: "Hello World", angle: 25)
+label = Gtk::Label.new("Hello World")
+label.angle = 25
+label.justify = :right
 ```
 
-which is equivalent to
+Each attribute is accessed by name (e.g., "angle") but can be set with the
+rubyish angle= method or the more Gtk-ish set_angle(value).
+
+Most widgets will accept a hash to initialize their values, but label only
+expects a single string.  We can easily extend a label's behavior to be more
+consistent with what we would expect since Ruby has open classes.  
 
 ```ruby
-label = Gtk::Label.new
-label.label = "Hello World"
-label.angle = 25   # or: label.set_angle 25
-label.angle  # => 25
-#label.halign = (Gtk.Align.END)
+class Gtk::Label
+  alias_method :orig_initialize, :initialize
+
+  def initialize(arg=nil)
+    arg.is_a?(String) ? orig_initialize(arg) : super(arg)
+  end
+end
 ```
 
-Each attribute is accessed by name (e.g., "angle") but can be set with the rubyish angle= method or the more Gtk-ish set_angle(value).
+Here, we send the string along to the original initialize method if
+that's what the user passed in, or we send whatever was passed in to the
+superclass (Gtk::Misc) which accepts a hash to initialize values.  Now, we can
+create a label with different attributes in a single call.
+
+```ruby
+label = Gtk::Label.new(label: "Hello World", angle: 25, justify: :right)
+```
