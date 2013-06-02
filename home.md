@@ -14,3 +14,5 @@ Contents:
 
 * [[Installation]]
 * [[Getting Started|Introduction]]
+* [[Basics]]
+* [[String Encoding]]
