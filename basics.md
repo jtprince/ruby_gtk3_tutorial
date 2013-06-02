@@ -31,7 +31,7 @@ Calling Gtk.main_quit makes the main loop inside of Gtk.main return.
 
 ## 3.2. Properties
 
-Properties describe the configuration and state of widgets. As for signals, each widget has its own particular set of properties. For example, a button has the property “label” which contains the text of the label widget inside the button. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget. To create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, use:
+Properties describe the configuration and state of widgets. As for signals, each widget has its own particular set of properties. For example, a button has the property “label” which contains the text of the label widget inside the button. To create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, use:
 
 ```ruby
 label = Gtk::Label.new("Hello World")
@@ -42,9 +42,11 @@ label.justify = :right
 Each attribute is accessed by name (e.g., "angle") but can be set with the
 rubyish angle= method or the more Gtk-ish set_angle(value).
 
-Most widgets will accept a hash to initialize their values, but label only
-expects a single string.  We can easily extend a label's behavior to be more
-consistent with what we would expect since Ruby has open classes.  
+For nearly all widgets, you can specify the name and value of any number of
+properties as keyword arguments when creating an instance of that widget.
+Gtk::Label, however, only accepts a single string.  We can easily extend the
+behavior to be more consistent with what we would expect since Ruby has open
+classes.  
 
 ```ruby
 class Gtk::Label
@@ -56,10 +58,10 @@ class Gtk::Label
 end
 ```
 
-Here, we send the string along to the original initialize method if
-that's what the user passed in, or we send whatever was passed in to the
-superclass (Gtk::Misc) which accepts a hash to initialize values.  Now, we can
-create a label with different attributes in a single call.
+So, we send the string along to the original initialize method if that's what
+the user passed in, or we send whatever was passed in to the superclass
+(Gtk::Misc), allowing us to pass in a hash  to initialize values.  Now, we can
+create a label complete with tweaks in a single call.
 
 ```ruby
 label = Gtk::Label.new(label: "Hello World", angle: 25, justify: :right)
