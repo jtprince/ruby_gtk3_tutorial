@@ -14,8 +14,8 @@ class RubyApp < Gtk::Window
     fixed = Gtk::Fixed.new
     add fixed
 
-    button = Gtk::Button.new "Button"
-    button.set_size_request 80, 35
+    button = Gtk::Button.new(label: "Button")
+    button.size_request = [80, 35]
     button.set_tooltip_text "Button widget"
 
     fixed.put button, 50, 50
